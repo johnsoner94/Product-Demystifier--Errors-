@@ -7,11 +7,24 @@
 //
 
 #import "PdAppDelegate.h"
+//#import "PdSecondViewController.h"
 
 @implementation PdAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    
+//    PdSecondViewController *svc = [[PdSecondViewController alloc] init];
+//    
+//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:svc];
+//    [[self window] setRootViewController:navController];
+//    
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+    
+    
+    
     // Override point for customization after application launch.
     return YES;
 }

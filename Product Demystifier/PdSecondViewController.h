@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "HeaderView.xib"
 
-@interface PdSecondViewController : UIViewController
+@interface PdSecondViewController : UITableViewController
+{
+    //IBOutlet UIView *headerView;
+}
+
+/*- (UIView *)headerView;
+- (IBAction)addNewItem:(id)sender;
+- (IBAction)toggleEditingMode:(id)sender;*/
 
 @end
