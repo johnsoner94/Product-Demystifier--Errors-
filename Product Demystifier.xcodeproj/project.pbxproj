@@ -24,7 +24,7 @@
 		81512C5018EE5FF20058DB99 /* Product_DemystifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 81512C4F18EE5FF20058DB99 /* Product_DemystifierTests.m */; };
 		81512C5B18EE6ECE0058DB99 /* Ingredients.m in Sources */ = {isa = PBXBuildFile; fileRef = 81512C5A18EE6ECE0058DB99 /* Ingredients.m */; };
 		81512C5E18EE72B90058DB99 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81512C5D18EE72B90058DB99 /* DetailViewController.m */; };
-		81512CE818EE7E090058DB99 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81512CE718EE7E090058DB99 /* HeaderView.xib */; };
+		81B3C4DF18F503DB0063F6D5 /* AddIngredientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B3C4DE18F503DB0063F6D5 /* AddIngredientViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,8 @@
 		81512C5A18EE6ECE0058DB99 /* Ingredients.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredients.m; sourceTree = "<group>"; };
 		81512C5C18EE72B90058DB99 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		81512C5D18EE72B90058DB99 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		81512CE718EE7E090058DB99 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		81B3C4DD18F503DB0063F6D5 /* AddIngredientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIngredientViewController.h; sourceTree = "<group>"; };
+		81B3C4DE18F503DB0063F6D5 /* AddIngredientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +127,8 @@
 				81512C3018EE5FF20058DB99 /* PdAppDelegate.h */,
 				81512C3118EE5FF20058DB99 /* PdAppDelegate.m */,
 				81512C3318EE5FF20058DB99 /* Main.storyboard */,
-				81512CE718EE7E090058DB99 /* HeaderView.xib */,
+				81B3C4DD18F503DB0063F6D5 /* AddIngredientViewController.h */,
+				81B3C4DE18F503DB0063F6D5 /* AddIngredientViewController.m */,
 				81512C5918EE6ECE0058DB99 /* Ingredients.h */,
 				81512C5A18EE6ECE0058DB99 /* Ingredients.m */,
 				81512C5C18EE72B90058DB99 /* DetailViewController.h */,
@@ -250,7 +252,6 @@
 				81512C3D18EE5FF20058DB99 /* Images.xcassets in Resources */,
 				81512C2C18EE5FF20058DB99 /* InfoPlist.strings in Resources */,
 				81512C3518EE5FF20058DB99 /* Main.storyboard in Resources */,
-				81512CE818EE7E090058DB99 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +276,7 @@
 				81512C2E18EE5FF20058DB99 /* main.m in Sources */,
 				81512C5B18EE6ECE0058DB99 /* Ingredients.m in Sources */,
 				81512C5E18EE72B90058DB99 /* DetailViewController.m in Sources */,
+				81B3C4DF18F503DB0063F6D5 /* AddIngredientViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +481,7 @@
 				81512C5518EE5FF20058DB99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81512C5618EE5FF20058DB99 /* Build configuration list for PBXNativeTarget "Product DemystifierTests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +490,7 @@
 				81512C5818EE5FF20058DB99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

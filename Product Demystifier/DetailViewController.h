@@ -12,11 +12,16 @@
 @interface DetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *sumView;
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *dangerLevel;
 @property (weak, nonatomic) IBOutlet UITextView *decrView;
 
-@property (nonatomic, strong) Ingredients *currentIngred;
+@property (nonatomic, retain) Ingredients *currentIngred;
+
+@property (strong, nonatomic) id detailItem;
+
+@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
 @property (nonatomic, copy) void (^dismissBlock)(void);
 
 @end
