@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "PdSecondViewController.h"
+#import "AddIngredientViewController.h"
 
 
 
@@ -16,42 +17,25 @@
 @end
 
 @implementation DetailViewController
-@synthesize currentIngred;
-@synthesize dismissBlock;
-
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-    }
-}
-
 
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-    
     if (self.detailItem) {
-        // Set the properties
         self.nameLabel.text = [self.detailItem name];
+        self.dangerLabel.text = [NSString stringWithFormat:@"Danger Level: %.f", 10*[self.detailItem danger]];
         self.sumView.text = [self.detailItem summary];
         self.decrView.text = [self.detailItem desc];
-        self.dangerLevel.text = [NSString stringWithFormat:@"%ld", (long)[self.detailItem danger]];
-        self.iconView.image = [self.detailItem icon];
-        
+
     }
 }
- 
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // set the text field as the delegate
-    //[self.nameLabel setDelegate:self];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"You went into here");
     [self configureView];
 }
 
@@ -61,8 +45,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-
-
+- (IBAction)backPressed:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 @end

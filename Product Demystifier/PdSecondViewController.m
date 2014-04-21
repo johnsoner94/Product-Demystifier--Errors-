@@ -9,6 +9,8 @@
 #import "PdSecondViewController.h"
 #import "DetailViewController.h"
 #import "Ingredients.h"
+#import "AddIngredientViewController.h"
+#import "IngredStore.h"
 
 @interface PdSecondViewController ()
 {
@@ -17,6 +19,30 @@
 @end
 
 @implementation PdSecondViewController
+
+- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle
+{
+    // Call the superclass's designated initializer
+    // Get a pointer to the application bundle object
+    NSBundle *appBundle = [NSBundle mainBundle];
+    
+    self = [super initWithNibName:@"PdSecondViewController"
+                           bundle:appBundle];
+    
+    if (self) {
+        // Get the tab bar item
+        UITabBarItem *tbi = [self tabBarItem];
+        // Give it a label
+        [tbi setTitle:@"My Ingredients"];
+        
+        UIImage *i = [UIImage imageNamed:@"Icon-Small.png"];
+        [tbi setImage:i];
+        
+        
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad
 {
@@ -43,10 +69,24 @@
     if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[[Ingredients alloc] init] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    Ingredients *i = [[IngredStore sharedStore] createItem];
+    [_objects insertObject:i atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     // USE THIS TO CREATE YOUR AddIngredientView
+    // create the new object before you present the new view
+    // pass the object into the new view as a property
+    // modal present a view controller that sets the values
+    // once they hit save you need to get the context ans save it
+    // before you get rid of that view you need to pass back the dismissBlock
+    AddIngredientViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddIngredient"];
+    //Ingredients *i = [_objects objectAtIndex:[indexPath row]];
+    [avc setDetailItem:i];
+    [avc setDismissBlock:^{
+        [[self tableView] reloadData];
+    }];
+    [avc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:avc animated:YES completion:nil];
 }
 
 #pragma mark - Table View
@@ -88,8 +128,13 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [_objects removeObjectAtIndex:indexPath.row];
+        IngredStore *is = [IngredStore sharedStore];
+        NSArray *ingreds = [is allItems];
+        // TODO!! There is something funky going on with your indexPath
+        Ingredients *i = [ingreds objectAtIndex:[indexPath row]];
+        [is removeItem:i];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
@@ -97,13 +142,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailViewController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"IngredientView"];
-    Ingredients *i = [_objects objectAtIndex:[indexPath row]];
-    [dvc setDetailItem:i];
-    [dvc setDismissBlock:^{
-        [[self tableView] reloadData];
-    }];
+    Ingredients *i = _objects[indexPath.row];
+    dvc.detailItem = i;
     [dvc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentViewController:dvc animated:YES completion:nil];
+}
+
+- (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    // Use to display your editing/adding page.
+    AddIngredientViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddIngredient"];
+    Ingredients *i = [_objects objectAtIndex:[indexPath row]];
+    [avc setDetailItem:i];
+    [avc setDismissBlock:^{
+        [[self tableView] reloadData];
+    }];
+    [avc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:avc animated:YES completion:nil];
 }
 
 - (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender

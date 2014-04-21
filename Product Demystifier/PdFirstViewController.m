@@ -14,6 +14,29 @@
 
 @implementation PdFirstViewController
 
+- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle
+{
+    // Call the superclass's designated initializer
+    // Get a pointer to the application bundle object
+    NSBundle *appBundle = [NSBundle mainBundle];
+    
+    self = [super initWithNibName:@"PdFirstViewController"
+                           bundle:appBundle];
+    
+    if (self) {
+        // Get the tab bar item
+        UITabBarItem *tbi = [self tabBarItem];
+        // Give it a label
+        [tbi setTitle:@"About"];
+        
+        UIImage *i = [UIImage imageNamed:@"first.png"];
+        [tbi setImage:i];
+        
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Ingredients.h"
 
-@interface AddIngredientViewController : UIViewController
+@interface AddIngredientViewController : UIViewController <UITextFieldDelegate>
 
+@property (nonatomic, retain) Ingredients *currentIngred;
+
+@property (strong, nonatomic) id detailItem;
+@property (nonatomic, copy) void (^dismissBlock)(void);
 @end

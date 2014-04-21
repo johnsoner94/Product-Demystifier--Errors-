@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		812E6C0F1904C70E00DA9AEA /* IngredStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E6C0E1904C70E00DA9AEA /* IngredStore.m */; };
+		812E6C121904CA2900DA9AEA /* IconStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E6C111904CA2900DA9AEA /* IconStore.m */; };
+		813648721904B1B500111032 /* Ingredients.m in Sources */ = {isa = PBXBuildFile; fileRef = 813648711904B1B500111032 /* Ingredients.m */; };
 		81512C2218EE5FF20058DB99 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81512C2118EE5FF20058DB99 /* Foundation.framework */; };
 		81512C2418EE5FF20058DB99 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81512C2318EE5FF20058DB99 /* CoreGraphics.framework */; };
 		81512C2618EE5FF20058DB99 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81512C2518EE5FF20058DB99 /* UIKit.framework */; };
@@ -22,8 +25,12 @@
 		81512C4618EE5FF20058DB99 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81512C2518EE5FF20058DB99 /* UIKit.framework */; };
 		81512C4E18EE5FF20058DB99 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81512C4C18EE5FF20058DB99 /* InfoPlist.strings */; };
 		81512C5018EE5FF20058DB99 /* Product_DemystifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 81512C4F18EE5FF20058DB99 /* Product_DemystifierTests.m */; };
-		81512C5B18EE6ECE0058DB99 /* Ingredients.m in Sources */ = {isa = PBXBuildFile; fileRef = 81512C5A18EE6ECE0058DB99 /* Ingredients.m */; };
 		81512C5E18EE72B90058DB99 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81512C5D18EE72B90058DB99 /* DetailViewController.m */; };
+		8157A41018FEDB4C00576707 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 8157A40E18FEDB4C00576707 /* first.png */; };
+		8157A41118FEDB4C00576707 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8157A40F18FEDB4C00576707 /* first@2x.png */; };
+		8157A41418FEDB5A00576707 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 8157A41218FEDB5A00576707 /* Icon-Small.png */; };
+		8157A41518FEDB5A00576707 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8157A41318FEDB5A00576707 /* Icon-Small@2x.png */; };
+		8157A41818FEE96200576707 /* ProductDemystifier.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8157A41618FEE96200576707 /* ProductDemystifier.xcdatamodeld */; };
 		81B3C4DF18F503DB0063F6D5 /* AddIngredientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B3C4DE18F503DB0063F6D5 /* AddIngredientViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +45,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		812E6C0D1904C70E00DA9AEA /* IngredStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredStore.h; sourceTree = "<group>"; };
+		812E6C0E1904C70E00DA9AEA /* IngredStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredStore.m; sourceTree = "<group>"; };
+		812E6C101904CA2900DA9AEA /* IconStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconStore.h; sourceTree = "<group>"; };
+		812E6C111904CA2900DA9AEA /* IconStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconStore.m; sourceTree = "<group>"; };
+		813648701904B1B500111032 /* Ingredients.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredients.h; sourceTree = "<group>"; };
+		813648711904B1B500111032 /* Ingredients.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredients.m; sourceTree = "<group>"; };
 		81512C1E18EE5FF20058DB99 /* Product Demystifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Product Demystifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81512C2118EE5FF20058DB99 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		81512C2318EE5FF20058DB99 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,10 +72,13 @@
 		81512C4B18EE5FF20058DB99 /* Product DemystifierTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Product DemystifierTests-Info.plist"; sourceTree = "<group>"; };
 		81512C4D18EE5FF20058DB99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		81512C4F18EE5FF20058DB99 /* Product_DemystifierTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Product_DemystifierTests.m; sourceTree = "<group>"; };
-		81512C5918EE6ECE0058DB99 /* Ingredients.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredients.h; sourceTree = "<group>"; };
-		81512C5A18EE6ECE0058DB99 /* Ingredients.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredients.m; sourceTree = "<group>"; };
 		81512C5C18EE72B90058DB99 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		81512C5D18EE72B90058DB99 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		8157A40E18FEDB4C00576707 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = Images.xcassets/first.imageset/first.png; sourceTree = "<group>"; };
+		8157A40F18FEDB4C00576707 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "Images.xcassets/first.imageset/first@2x.png"; sourceTree = "<group>"; };
+		8157A41218FEDB5A00576707 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Images.xcassets/second.imageset/Icon-Small.png"; sourceTree = "<group>"; };
+		8157A41318FEDB5A00576707 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Images.xcassets/second.imageset/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		8157A41718FEE96200576707 /* ProductDemystifier.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductDemystifier.xcdatamodel; sourceTree = "<group>"; };
 		81B3C4DD18F503DB0063F6D5 /* AddIngredientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIngredientViewController.h; sourceTree = "<group>"; };
 		81B3C4DE18F503DB0063F6D5 /* AddIngredientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,13 +140,22 @@
 		81512C2718EE5FF20058DB99 /* Product Demystifier */ = {
 			isa = PBXGroup;
 			children = (
+				8157A40E18FEDB4C00576707 /* first.png */,
+				8157A40F18FEDB4C00576707 /* first@2x.png */,
+				8157A41218FEDB5A00576707 /* Icon-Small.png */,
+				8157A41318FEDB5A00576707 /* Icon-Small@2x.png */,
 				81512C3018EE5FF20058DB99 /* PdAppDelegate.h */,
 				81512C3118EE5FF20058DB99 /* PdAppDelegate.m */,
 				81512C3318EE5FF20058DB99 /* Main.storyboard */,
+				8157A41618FEE96200576707 /* ProductDemystifier.xcdatamodeld */,
+				813648701904B1B500111032 /* Ingredients.h */,
+				813648711904B1B500111032 /* Ingredients.m */,
+				812E6C101904CA2900DA9AEA /* IconStore.h */,
+				812E6C111904CA2900DA9AEA /* IconStore.m */,
 				81B3C4DD18F503DB0063F6D5 /* AddIngredientViewController.h */,
 				81B3C4DE18F503DB0063F6D5 /* AddIngredientViewController.m */,
-				81512C5918EE6ECE0058DB99 /* Ingredients.h */,
-				81512C5A18EE6ECE0058DB99 /* Ingredients.m */,
+				812E6C0D1904C70E00DA9AEA /* IngredStore.h */,
+				812E6C0E1904C70E00DA9AEA /* IngredStore.m */,
 				81512C5C18EE72B90058DB99 /* DetailViewController.h */,
 				81512C5D18EE72B90058DB99 /* DetailViewController.m */,
 				81512C3618EE5FF20058DB99 /* PdFirstViewController.h */,
@@ -249,9 +274,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8157A41018FEDB4C00576707 /* first.png in Resources */,
 				81512C3D18EE5FF20058DB99 /* Images.xcassets in Resources */,
+				8157A41418FEDB5A00576707 /* Icon-Small.png in Resources */,
 				81512C2C18EE5FF20058DB99 /* InfoPlist.strings in Resources */,
+				8157A41118FEDB4C00576707 /* first@2x.png in Resources */,
 				81512C3518EE5FF20058DB99 /* Main.storyboard in Resources */,
+				8157A41518FEDB5A00576707 /* Icon-Small@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +303,10 @@
 				81512C3218EE5FF20058DB99 /* PdAppDelegate.m in Sources */,
 				81512C3B18EE5FF20058DB99 /* PdSecondViewController.m in Sources */,
 				81512C2E18EE5FF20058DB99 /* main.m in Sources */,
-				81512C5B18EE6ECE0058DB99 /* Ingredients.m in Sources */,
+				813648721904B1B500111032 /* Ingredients.m in Sources */,
+				8157A41818FEE96200576707 /* ProductDemystifier.xcdatamodeld in Sources */,
+				812E6C121904CA2900DA9AEA /* IconStore.m in Sources */,
+				812E6C0F1904C70E00DA9AEA /* IngredStore.m in Sources */,
 				81512C5E18EE72B90058DB99 /* DetailViewController.m in Sources */,
 				81B3C4DF18F503DB0063F6D5 /* AddIngredientViewController.m in Sources */,
 			);
@@ -493,6 +525,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8157A41618FEE96200576707 /* ProductDemystifier.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8157A41718FEE96200576707 /* ProductDemystifier.xcdatamodel */,
+			);
+			currentVersion = 8157A41718FEE96200576707 /* ProductDemystifier.xcdatamodel */;
+			path = ProductDemystifier.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 81512C1618EE5FF20058DB99 /* Project object */;
 }

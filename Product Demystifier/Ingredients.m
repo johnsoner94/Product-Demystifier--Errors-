@@ -9,14 +9,28 @@
 #import "Ingredients.h"
 
 @implementation Ingredients
-@synthesize name;
-@synthesize danger;
-@synthesize desc;
-@synthesize summary;
+
+@synthesize name, danger, desc, summary, icon, imageKey;
 
 - (NSArray *)allItems
+
 {
     return allItems;
 }
 
+- (id)init
+
+{
+    self = [super init];
+    if (self)
+    {
+        name = @"Ingredient";
+        danger = 0;
+        desc = @"Detailed Description";
+        summary = @"Summary";
+    }
+    return self;
+}
+
 @end
+
