@@ -48,6 +48,10 @@
     [self.summaryTextField setDelegate:self];
     [dangerLevelSlider setMaximumTrackTintColor:[UIColor colorWithRed:0 green:128 blue:0 alpha:0.5]];
     [dangerLevelSlider setMinimumTrackTintColor:[UIColor colorWithRed:220 green:20 blue:60 alpha:0.5]];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"descripTextView" object:nil userInfo:_descripTextView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectedDescription:) name:@"descripTextView" object:_descripTextView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }
@@ -82,19 +86,32 @@
 */
 
 - (IBAction)saved:(id)sender {
-    [self.detailItem setName:[self.addNameTextField text]];
-    [self.detailItem setDanger:[self.dangerLevelSlider value]];
-    [self.detailItem setSummary:[self.summaryTextField text]];
-    [self.detailItem setDesc:[self.descripTextView text]];
-    // Later you'll set the icon using the danger level, once you have images to work with
-    // You may need to add this new item to the array of ingredients
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:[self dismissBlock]];
+    if ([self.addNameTextField text] != nil || [self.summaryTextField text] != nil || [self.descripTextView text] != nil)
+    {
+        [self.detailItem setName:[self.addNameTextField text]];
+        [self.detailItem setDanger:[self.dangerLevelSlider value]];
+        [self.detailItem setSummary:[self.summaryTextField text]];
+        [self.detailItem setDesc:[self.descripTextView text]];
+        // Later you'll set the icon using the danger level, once you have images to work with
+        // You may need to add this new item to the array of ingredients
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:[self dismissBlock]];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"You need to add information to enter an ingredients."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        //[alert release];
+    }
 }
 
 - (IBAction)cancelled:(id)sender {
     // You may need to remove this item from the array of ingredients
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-    // delete object here?
+    _detailItem = nil;
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:[self dismissBlock]];
 }
 
 - (IBAction)dangerSliderChanged:(id)sender {
@@ -110,6 +127,20 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    //Assign new frame to your view
+    //keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    [self.view setFrame:CGRectMake(0,-50,320,460)]; //here taken -20 for example i.e. your view will be scrolled to -20. change its value according to your requirement.
+    
+}
+
+-(void)keyboardDidHide:(NSNotification *)notification
+{
+    [self.view setFrame:CGRectMake(0,0,320,460)];
 }
 
 @end

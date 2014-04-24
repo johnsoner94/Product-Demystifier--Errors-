@@ -63,7 +63,6 @@
     [self.tableView reloadData];
 }
 
-
 - (void)insertNewObject:(id)sender
 {
     if (!_objects) {
@@ -71,18 +70,27 @@
     }
     Ingredients *i = [[IngredStore sharedStore] createItem];
     [_objects insertObject:i atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     // USE THIS TO CREATE YOUR AddIngredientView
     // create the new object before you present the new view
     // pass the object into the new view as a property
     // modal present a view controller that sets the values
-    // once they hit save you need to get the context ans save it
+    // once they hit save you need to get the context and save it
     // before you get rid of that view you need to pass back the dismissBlock
     AddIngredientViewController *avc = [self.storyboard instantiateViewControllerWithIdentifier:@"AddIngredient"];
-    //Ingredients *i = [_objects objectAtIndex:[indexPath row]];
     [avc setDetailItem:i];
     [avc setDismissBlock:^{
+        if (avc.detailItem == nil) {
+            // delete it using context
+            IngredStore *is = [IngredStore sharedStore];
+            NSArray *ingreds = [is allItems];
+            Ingredients *i = [ingreds objectAtIndex:[indexPath row]];
+            [is removeItem:i];
+            // remove it from the table/array
+            [_objects removeObject:i];
+            NSLog(@"After deleting an item allItems has %d items", [[is allItems] count]);
+            NSLog(@"After deleting an item _objects has %d items", _objects.count);
+        }
         [[self tableView] reloadData];
     }];
     [avc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
@@ -134,7 +142,10 @@
         // TODO!! There is something funky going on with your indexPath
         Ingredients *i = [ingreds objectAtIndex:[indexPath row]];
         [is removeItem:i];
-        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [_objects removeObject:i];
+        NSLog(@"After deleting an item allItems has %d items", [[is allItems] count]);
+        NSLog(@"After deleting an item _objects has %d items", _objects.count);
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }

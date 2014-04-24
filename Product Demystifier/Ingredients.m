@@ -24,10 +24,10 @@
     self = [super init];
     if (self)
     {
-        name = @"Ingredient";
+        name = nil;
         danger = 0;
-        desc = @"Detailed Description";
-        summary = @"Summary";
+        desc = nil;
+        summary = nil;
     }
     return self;
 }

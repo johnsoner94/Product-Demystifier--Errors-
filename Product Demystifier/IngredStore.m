@@ -23,7 +23,7 @@
 {
     self = [super init];
     if (self) {
-        // Reload in Homepwner.xcdatamodeld
+        // Reload in ProductDemystifier.xcdatamodeld
         model = [NSManagedObjectModel mergedModelFromBundles:nil];
         
         NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
