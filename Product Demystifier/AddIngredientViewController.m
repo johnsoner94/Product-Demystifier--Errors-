@@ -49,7 +49,7 @@
     [dangerLevelSlider setMaximumTrackTintColor:[UIColor colorWithRed:0 green:128 blue:0 alpha:0.5]];
     [dangerLevelSlider setMinimumTrackTintColor:[UIColor colorWithRed:220 green:20 blue:60 alpha:0.5]];
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"descripTextView" object:nil userInfo:_descripTextView];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectedDescription:) name:@"descripTextView" object:_descripTextView];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectedDescription:) name:@"descripTextView" object:_descripTextView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -86,7 +86,7 @@
 */
 
 - (IBAction)saved:(id)sender {
-    if ([self.addNameTextField text] != nil || [self.summaryTextField text] != nil || [self.descripTextView text] != nil)
+    if (![[self.addNameTextField text]  isEqual: @""] && ![[self.summaryTextField text]  isEqual: @""] && ![[self.descripTextView text]  isEqual: @""])
     {
         [self.detailItem setName:[self.addNameTextField text]];
         [self.detailItem setDanger:[self.dangerLevelSlider value]];
@@ -99,7 +99,7 @@
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"You need to add information to enter an ingredients."
+                                                        message:@"You need to add all information to create a new ingredients."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

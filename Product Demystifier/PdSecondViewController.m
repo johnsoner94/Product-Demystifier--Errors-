@@ -38,7 +38,6 @@
         UIImage *i = [UIImage imageNamed:@"Icon-Small.png"];
         [tbi setImage:i];
         
-        
     }
     return self;
 }
